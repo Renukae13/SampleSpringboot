@@ -1,0 +1,28 @@
+pool:
+  name: Ec2pool
+steps:
+- script: |
+   mvn clean install
+   
+  displayName: 'Command Line Script'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: jar'
+  inputs:
+    PathtoPublish: 'target/SpringBootMavenExample-2.3.5.RELEASE.jar'
+    ArtifactName: jar
+
+- script: |
+   docker build -t  demo1:1.0 .
+   docker tag demo1:1.0 503366563792.dkr.ecr.us-west-1.amazonaws.com/madhudemo:test1
+   
+   
+   
+   
+  displayName: 'Command Line Script'
+
+- script: |
+   aws ecr get-login-password --region us-west-1 | docker login --username AWS --password-stdin 503366563792.dkr.ecr.us-west-1.amazonaws.com
+   
+   docker push 503366563792.dkr.ecr.us-west-1.amazonaws.com/madhudemo:test1
+  displayName: 'Command Line Script'
