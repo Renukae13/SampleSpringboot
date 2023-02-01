@@ -1,0 +1,36 @@
+- name: jmeter-runner-action
+  # You may pin to the exact commit or the version.
+  # uses: arunpunaroor/jmeter-runner-action@003fec00fef84ad688773de5231853aa0b9e8083
+  uses: arunpunaroor/jmeter-runner-action@v1
+  with:
+    # The path to the JMX test file
+    testFilePath: 
+    # The folder where the JMeter reports will be published
+    outputReportsFolder: # optional, default is reports/
+    # Optional arguments that are passed to the JMeter tool
+
+Options:
+  -p, --propfile <argument>
+  -q, --addprop <argument>
+  -i, --jmeterlogconf <argument>
+  -j, --jmeterlogfile <argument>
+  -s, --server
+  -E, --proxyScheme <argument>
+  -H, --proxyHost <argument>
+  -P, --proxyPort <argument>
+  -N, --nonProxyHosts<argument>
+  -u, --username <argument>
+  -a, --password <argument>
+  -J, --jmeterproperty <argument>=<value>
+  -G, --globalproperty <argument>=<value>
+  -D, --systemproperty <argument>=<value>
+  -S, --systemPropertyFile <argument>
+  -f, --forceDeleteResultFile
+  -L, --loglevel <argument>=<value>
+  -r, --runremote
+  -R, --remotestart <argument>
+  -d, --homedir <argument>
+  -X, --remoteexit
+  -g, --reportonly <argument>
+
+    args: # optional
